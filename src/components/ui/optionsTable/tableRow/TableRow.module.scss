@@ -3,8 +3,8 @@
 
     &[data-highlighted="true"] {
         background-color: var(--color-green);
-        color: var(--color-dark-green);
         font-weight: bold;
+        color: var(--color-dark-green);
     }
 }
 
@@ -13,13 +13,13 @@
     text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
     font-size: 0.8rem;
+    overflow: hidden;
 }
 
 .strike {
     @extend .data;
+    background-color: var(--color-blue);
     font-weight: bold;
     color: var(--color-dark-blue);
-    background-color: var(--color-blue);
 }

@@ -26,7 +26,7 @@ const Root = () => {
     // Refs
     const websocketRef = useRef<WebSocket | null>(null);
 
-    
+
     /**
      * Fetches the exchange info and builds the initial chain
      */

@@ -8,7 +8,7 @@ import styling from './TableRow.module.scss';
  * Memoized table row component that only re-renders when the data has changed.
  */
 const StrikeTableRow = React.memo(({ strike, callData, putData, isHighlighted }: StrikeTableRowProps) => {
-   return (
+    return (
         <tr className={styling.row} data-highlighted={isHighlighted}>
             <td className={styling.data}>{callData?.bestBuyQty ?? '-'}</td>
             <td className={styling.data}>{callData?.bestBuyPrice ?? '-'}</td>

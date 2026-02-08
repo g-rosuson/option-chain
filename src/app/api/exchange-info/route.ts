@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-
 import config from 'src/config';
 
 export const runtime = 'edge';
@@ -18,7 +17,7 @@ const GET = async () => {
 
         const data = await response.json();
 
-        console.log("RAW API RESPONSE:", data);
+        console.log('RAW API RESPONSE:', data);
 
         return NextResponse.json(data);
     } catch (error) {

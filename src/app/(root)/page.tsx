@@ -2,8 +2,6 @@ import React from 'react';
 import { Metadata } from 'next';
 
 import RootPage from 'src/components/pages/root/Root';
-import Heading from 'src/components/ui/heading/Heading';
-
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.options-url.com'),
@@ -17,16 +15,6 @@ export const metadata: Metadata = {
     }
 };
 
-const Root = async () => {
-    return (
-        <>
-            <Heading level={1} size="s">
-                Options app
-            </Heading>
-
-            <RootPage/>
-        </>
-    );
-};
+const Root = () => <RootPage/>;
 
 export default Root;

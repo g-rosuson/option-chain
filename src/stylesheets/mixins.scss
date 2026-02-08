@@ -1,0 +1,14 @@
+@mixin fade-in-lower($translateY: -40px, $animationDuration: 1s) {
+	@keyframes fade-in-lower {
+		0% {
+			transform: translateY(#{$translateY});
+			opacity: 0;
+		}
+
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	animation: fade-in-lower #{$animationDuration} forwards;
+}

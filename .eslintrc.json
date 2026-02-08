@@ -1,0 +1,132 @@
+{
+    "extends": [
+      "next/core-web-vitals",
+      "plugin:@next/next/recommended",
+      "plugin:css-modules/recommended"
+    ],
+    "plugins": [
+      "css-modules",
+      "simple-import-sort"
+    ],
+    "rules": {
+      "simple-import-sort/imports": [
+        "warn",
+        {
+          "groups": [
+            // External packages with "react" related imports coming first
+            ["^react", "^@?\\w"],
+            // Components
+            ["(?:\\.\\./|\\.\\/|components\\/)?(?:\\w+\\/)?([a-z]\\w+)/([A-Z]\\w+)|^./illustrations/"],
+            // Private functions starting with an underscore
+            ["^\\.[^_]*_.*"],
+            // Services, store, config, api, utils and component-scoped helpers as well as the import of index files
+            ["^(services/.*|store|mappers|config|api|styles|themes|options|utils|.+\\/helpers|.+\\/mappers)(\\/.*|$)|.+/context|^\\\\..*\\\\/$\n"],
+            // Types
+            ["^.*\\btypes\\b.*$"],
+            // Media folder
+            ["^(media)(/.*|$)"],
+            // Side effect imports e.g. import statements without "from"
+            ["^\\u0000"],
+            // Stylesheets
+            ["^.+\\.s?css$"],
+            // JSON files
+            ["^.+\\.json$"]
+          ]
+        }
+      ],
+      "css-modules/no-unused-class": [2, { "camelCase": true }],
+      "css-modules/no-undef-class": [2, { "camelCase": true }],
+      "no-useless-return": "warn",
+      "max-len": ["warn", {"code": 135, "comments": 105}],
+      "quotes": ["error", "single"],
+      "semi": "warn",
+      "camelcase": "error",
+      "curly": ["error", "all"],
+      "prefer-const": "error",
+      "no-const-assign": "error",
+      "indent": ["warn", 4, {"SwitchCase": 1}],
+      "no-await-in-loop": "off",
+      "no-continue": "off",
+      "no-prototype-builtins": "error",
+      "array-callback-return": ["error", {"checkForEach": true}],
+      "spaced-comment": "warn",
+      "no-useless-escape": "error",
+      "wrap-iife": "error",
+      "no-extra-semi": "warn",
+      "no-loop-func": "error",
+      "prefer-rest-params": "error",
+      "default-param-last": "error",
+      "no-multiple-empty-lines": ["warn", {"max": 2}],
+      "space-before-blocks": "warn",
+      "space-before-function-paren": ["warn", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
+      "prefer-spread": "error",
+      "function-paren-newline": "error",
+      "arrow-spacing": "error",
+      "implicit-arrow-linebreak": "error",
+      "no-duplicate-imports": "error",
+      "no-iterator": "error",
+      "dot-notation": "error",
+      "multiline-ternary": ["error", "never"],
+      "no-multi-assign": "error",
+      "no-multi-spaces": "warn",
+      "no-nested-ternary": "error",
+      "no-unneeded-ternary": "error",
+      "no-mixed-operators": "error",
+      "no-unexpected-multiline": "error",
+      "no-else-return": "error",
+      "no-console": "warn",
+      "import/no-commonjs": "warn",
+      "object-curly-spacing": ["warn", "always"],
+      "keyword-spacing": "warn",
+      "space-infix-ops": "warn",
+      "space-in-parens": "warn",
+      "array-bracket-spacing": "error",
+      "comma-spacing": "warn",
+      "comma-dangle": "warn",
+      "computed-property-spacing": "error",
+      "key-spacing": "error",
+      "no-trailing-spaces": "warn",
+      "no-restricted-globals": "error",
+      "sonarjs/cognitive-complexity": "off",
+      "sonarjs/no-duplicate-string": "off",
+      "sonarjs/no-nested-template-literals": "off",
+      "capitalized-comments": [
+        "warn",
+        "always",
+        {
+          "ignoreConsecutiveComments": true,
+          "ignorePattern": "@formatter"
+        }
+      ],
+      "jsx-quotes": ["warn", "prefer-double"],
+      "react/self-closing-comp": "warn",
+      "react/jsx-boolean-value": ["warn", "never"],
+      "react/jsx-no-useless-fragment": "warn",
+      "react/react-in-jsx-scope": "warn",
+      "react/jsx-curly-brace-presence": ["warn", {"props": "never"}],
+      "react/jsx-no-target-blank": [
+        "warn",
+        {
+          "enforceDynamicLinks": "always"
+        }
+      ],
+      "react/jsx-sort-props": [
+        "warn",
+        {
+          "noSortAlphabetically": true,
+          "shorthandLast": true,
+          "ignoreCase": true
+        }
+      ],
+      "react/jsx-tag-spacing": [
+        "warn",
+        {
+          "closingSlash": "never",
+          "beforeSelfClosing": "never",
+          "afterOpening": "never",
+          "beforeClosing": "never"
+        }
+      ]
+    }
+  }
+  

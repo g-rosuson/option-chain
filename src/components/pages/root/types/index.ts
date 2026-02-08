@@ -3,6 +3,7 @@ import type { OptionsChain, OptionSymbol } from 'src/shared/types';
 interface State {
     isLoading: boolean;
     deadlineTimestamp: number;
+    deadlineDate: string;
     optionsChain: OptionsChain | null;
     highlightStrike: number | null;
 }

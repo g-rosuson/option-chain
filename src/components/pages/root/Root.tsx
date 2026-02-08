@@ -15,9 +15,10 @@ import styling from './Root.module.scss';
 
 const Root = () => {
     // State
-    const [{ isLoading, deadlineTimestamp, optionsChain, highlightStrike }, setState] = useState<State>({
+    const [{ isLoading, deadlineTimestamp, deadlineDate, optionsChain, highlightStrike }, setState] = useState<State>({
         isLoading: true,
         deadlineTimestamp: utils.time.getNextFridayTimestamp(),
+        deadlineDate: '',
         optionsChain: null,
         highlightStrike: null
     });
@@ -39,13 +40,26 @@ const Root = () => {
 
             const optionsChain = isDataValid ? helpers.buildInitialChain({
                 instruments: data.optionSymbols,
-                deadlineTimestamp,
+                deadlineTimestamp: utils.time.getNextFridayTimestamp(),
                 baseCoin: 'BTC'
             }) : null;
+
+            // Format the deadline timestamp for display
+            const deadlineTimestampFormatted = new Date(utils.time.getNextFridayTimestamp()).toLocaleString(undefined, {
+                timeZone: 'UTC',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
 
             setState((prev) => ({
                 ...prev,
                 optionsChain,
+                deadlineDate: deadlineTimestampFormatted,
                 isLoading: isDataValid
             }));
         };
@@ -183,19 +197,6 @@ const Root = () => {
     }
 
 
-    // Format the deadline timestamp for display
-    const deadlineTimestampFormatted = new Date(deadlineTimestamp).toLocaleString(undefined, {
-        timeZone: 'UTC',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    });
-
-
     return (
         <>
             <Heading level={1} size="l">
@@ -205,7 +206,7 @@ const Root = () => {
             <div className={styling.card}>
                 <Heading level={2} size="s">Expires on:</Heading>
 
-                <p>{deadlineTimestampFormatted}</p>
+                <p>{deadlineDate || '-'}</p>
             </div>
 
             {content}

@@ -35,13 +35,18 @@ const Root = () => {
             const res = await fetch(config.endpoint.exchangeInfoApiRoute);
             const data = await res.json();
 
+            const isDataValid = data.optionSymbols && data.optionSymbols.length > 0;
+
+            const optionsChain = isDataValid ? helpers.buildInitialChain({
+                instruments: data.optionSymbols,
+                deadlineTimestamp,
+                baseCoin: 'BTC'
+            }) : null;
+
             setState((prev) => ({
                 ...prev,
-                optionsChain: helpers.buildInitialChain({
-                    instruments: data.optionSymbols,
-                    deadlineTimestamp,
-                    baseCoin: 'BTC'
-                })
+                optionsChain,
+                isLoading: isDataValid
             }));
         };
 
@@ -161,6 +166,12 @@ const Root = () => {
     let content = (
         <div>Loading information ...</div>
     );
+
+    if (!isLoading && !optionsChain) {
+        content = (
+            <div>No data available</div>
+        );
+    }
 
     if (!isLoading && optionsChain) {
         content = (

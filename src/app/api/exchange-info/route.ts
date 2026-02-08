@@ -17,8 +17,6 @@ const GET = async () => {
 
         const data = await response.json();
 
-        console.log('RAW API RESPONSE:', data);
-
         return NextResponse.json(data);
     } catch (error) {
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

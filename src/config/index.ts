@@ -1,8 +1,8 @@
 const config = {
     endpoint: {
-        markPriceStream: `${process.env.NEXT_PUBLIC_BINANCE_MARK_PRICE_ENDPOINT || ''}`,
-        exchangeInfoApiRoute: `${process.env.NEXT_PUBLIC_EXCHANGE_INFO_API_ROUTE || ''}`,
-        exchangeInfo: `${process.env.NEXT_PUBLIC_BINANCE_EXCHANGE_INFO_ENDPOINT || ''}`
+        markPriceStream: 'wss://fstream.binance.com/market/stream?streams=btcusdt@optionMarkPrice',
+        exchangeInfoApiRoute: '/api/exchange-info',
+        exchangeInfo: 'https://eapi.binance.com/eapi/v1/exchangeInfo'
     }
 };
 

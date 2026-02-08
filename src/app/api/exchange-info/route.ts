@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 
 import config from 'src/config';
 
+export const runtime = 'edge';
+export const preferredRegion = 'fra1';
+
 const GET = async () => {
     try {
         const response = await fetch(config.endpoint.exchangeInfo);
@@ -14,6 +17,8 @@ const GET = async () => {
         }
 
         const data = await response.json();
+
+        console.log("RAW API RESPONSE:", data);
 
         return NextResponse.json(data);
     } catch (error) {

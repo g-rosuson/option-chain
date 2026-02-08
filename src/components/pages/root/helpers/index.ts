@@ -13,7 +13,7 @@ const buildInitialChain = ({ instruments, deadlineTimestamp, baseCoin }: BuildIn
     const underlying = `${baseCoin}USDT`;
     const chain = new Map<number, StrikeRow>();
 
-    for (const instrument of instruments) {
+    for (const instrument of instruments || []) {
         if (
             instrument.underlying !== underlying ||
             instrument.status !== 'TRADING' ||

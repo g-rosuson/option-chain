@@ -32,7 +32,7 @@ const Root = () => {
      */
     useEffect(() => {
         const fetchExchangeInfo = async () => {
-            const res = await fetch(config.endpoint.exchangeInfo);
+            const res = await fetch(config.endpoint.exchangeInfoApiRoute);
             const data = await res.json();
 
             setState((prev) => ({

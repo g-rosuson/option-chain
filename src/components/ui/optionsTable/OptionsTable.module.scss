@@ -1,0 +1,38 @@
+.container {
+    border-radius: var(--border-radius-small);
+    border: 0.5px solid var(--color-border);
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+}
+
+.row {
+    background-color: var(--color-background-secondary);
+}
+
+.head {
+    padding: var(--gap-extra-small);
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.strike {
+    @extend .head;
+    background-color: var(--color-blue);
+    color: var(--color-dark-blue);
+}
+
+.spacer {
+    @extend .head;
+    border: none;
+    background-color: var(--color-background);
+}
+
+.category {
+    @extend .head;
+    font-size: 0.8rem;
+}

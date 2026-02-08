@@ -3,7 +3,6 @@
 /* Determine CSS variables */
 :root {
 	// Layout
-	--top-bar-height: 3.5rem;
 	--border-radius: 6px;
 	--border-radius-small: 4px;
 	--gap-large: 3rem;
@@ -15,34 +14,23 @@
 	--shadow: 0 8px 16px rgb(2 8 20 / 10%), 0 4px 8px rgb(2 8 20 / 8%);
 
 	// Colors
-	--color-background: #f3f3f3;
-	--color-background-secondary: #e9e7e7;
-	--color-text-primary: #3b3b3b;
-	--color-text-secondary: #565656;
-	--color-tint: rgb(94 94 94 / 20%);
-	--color-text-cta: #3b3b3b;
-	--color-border: #7c7c7c;
-	--color-contrast: #2a2a2a;
+    color-scheme: dark;
+	--color-background: #1c1b1d;
+	--color-background-secondary: #434345;
+	--color-text-primary: #c4c4c4;
+	--color-text-secondary: #a4a4a4;
+	--color-border: #5a5a5a;
+	--color-contrast: #fcf1e0;
 	--color-light-brown: #e3c6bf;
 	--color-brown: #b47a6d;
 	--color-light-blue: #a1c7ce;
 	--color-white: #fcf1e0;
-	--color-blue: #4093a2;
+	--color-blue: #39dffc;
+	--color-dark-blue: #043933;
 	--color-yellow: #dfe70d;
-	--color-green: #11e0c8;
+	--color-green: #12dcc4;
+	--color-dark-green: #043933;
 	--color-purple: #dd6aff;
-}
-
-/* Set dark-mode colors */
-:root[data-theme='dark'] {
-	color-scheme: dark;
-	--color-background: #1c1b1d;
-	--color-background-secondary: #2a2a2d;
-	--color-contrast: #fcf1e0;
-	--color-text-primary: #c4c4c4;
-	--color-text-secondary: #a4a4a4;
-	--color-tint: rgb(59 59 59 / 40%);
-	--color-text-cta: #dfe70d;
 }
 
 /* Use a more-intuitive box-sizing model */
@@ -92,4 +80,16 @@ p, span {
 /* Remove underline from anchor tags */
 a {
 	text-decoration: none;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--border-radius-small);
+    border: 0.5px solid var(--color-border);
+    overflow: hidden;
+}
+
+th, td {
+    border: 0.5px solid var(--color-border);
 }
